@@ -1,0 +1,28 @@
+.toast {
+    z-index: 9999;
+    animation: var(--toast-delay) cubic-bezier(0.25, 1, 0.5, 1) slideIn;
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        top: 110px;
+    }
+
+    to {
+        opacity: 0;
+        top: -120%;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        top: -10%;
+    }
+
+    100% {
+        opacity: 1;
+        top: var(--toast-sideOffset);
+    }
+}
