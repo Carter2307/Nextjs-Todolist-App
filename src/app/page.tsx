@@ -12,6 +12,8 @@ import React from "react";
 import {AppContext} from "@/context/context";
 import * as Dialog from "@radix-ui/react-dialog"
 import {DialogOverlay} from "@radix-ui/react-dialog";
+import * as Alert from "@ui/organisims/Alert/Alert"
+import * as Toast from "@ui/atoms/Toast/Toast"
 
 export default function Home() {
   const [showSearch, setShowSearch] = React.useState(true);
@@ -25,8 +27,25 @@ export default function Home() {
     setT(tasks)
   }, [tasks])
 
-  const onSearch = (e) => {
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterText(e.currentTarget.value);
+  }
+
+  const handleDeleteAll = () => {
+    Alert.open({
+      title: "Tous supprimer ?",
+      content: "Vous allez supprimer toutes les tâches. Cette action est irréversible.",
+      action: (dismiss,id,) => {
+        deleteAll()
+        dismiss(id)
+        Toast.open({
+          position: "top-right",
+          description: "Toutes les tâches ont été supprimées",
+          style: "success",
+          title: "Success"
+        })
+      }
+    })
   }
 
   return (
@@ -43,7 +62,7 @@ export default function Home() {
           <Stack direction={"row"} gapx={8} align={"center"}>
             <ButtonIcon icon={<SearchIcon/>} size={"md"} variant={"ghost"}
                         onClick={() => setShowSearch(prev => !prev)}/>
-            <ButtonIcon icon={<TrashIcon/>} size={"md"} variant={"ghost"} onClick={() => deleteAll()}/>
+            <ButtonIcon icon={<TrashIcon/>} size={"md"} variant={"ghost"} onClick={() => handleDeleteAll()}/>
           </Stack>
 
         </Stack>

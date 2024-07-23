@@ -12,3 +12,6 @@ String.prototype.capitalizeFirstLetter = function() {
   // Capitalize the first letter and concatenate it with the rest of the string
   return this.charAt(0).toUpperCase() + this.slice(1);
 }
+
+
+export {}

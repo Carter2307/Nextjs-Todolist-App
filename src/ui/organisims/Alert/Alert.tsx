@@ -144,7 +144,9 @@ const AlertElement = (props: AlertElementProps) => {
       setActionButton(
         React.cloneElement(ActionButton, {
           onClick: (e: MouseEvent) => {
-            if (action) action(dismiss, identifier, e);
+            if (action) {
+              action(dismiss, identifier, e)
+            };
           },
         }),
       );

@@ -7,6 +7,7 @@ import * as Modal from "@ui/organisims/Modal/Modal";
 import {Toast} from "@ui/atoms/Toast/Toast";
 import {AppProvider} from "@/context/context";
 import classNames from "classnames";
+import * as Alert from "@ui/organisims/Alert/Alert"
 
 /*export const metadata = {
   title: "Todolist App",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <AppProvider>
         {children}
         <Modal.Root/>
+        <Alert.Root/>
         <Toast/>
       </AppProvider>
       </body>

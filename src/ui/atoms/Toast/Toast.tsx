@@ -44,7 +44,7 @@ class Observer {
     this.subscriber.push(subscriber);
   };
 
-  publish = (data) => {
+  publish = (data: ToastProps) => {
     this.toast.push(data);
     this.subscriber.forEach((subscriber) => subscriber(data));
   };

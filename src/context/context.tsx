@@ -1,3 +1,5 @@
+"use client";
+
 import React, {ReactNode} from "react";
 
 interface AppContextProps {
@@ -15,7 +17,7 @@ const AppContext = React.createContext<AppContextProps>({
 })
 
 const AppProvider = ({children}: { children: ReactNode }) => {
-  const localTasksString = window.localStorage.getItem('app-tasks');
+  const localTasksString = localStorage.getItem('app-tasks');
   const localTasks = localTasksString ? JSON.parse(localTasksString) : []
   const [tasks, setTasks] = React.useState<Task[]>([...localTasks, {
     id: 1,
@@ -31,7 +33,7 @@ const AppProvider = ({children}: { children: ReactNode }) => {
 
   const update = (t: Task[]) => {
     setTasks(t);
-    window.localStorage.setItem('app-tasks', JSON.stringify(t))
+    localStorage.setItem('app-tasks', JSON.stringify(t))
   }
 
   const add = (task: Task) => {
