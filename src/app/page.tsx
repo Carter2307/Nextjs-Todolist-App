@@ -55,7 +55,7 @@ export default function Home() {
         <Stack direction={"row"} className={"pb-4 border-solid border-b-[1px] border-gray-200"} align={"center"}
                justify={"space-between"}>
           <Stack direction={"col"}>
-            <Heading level={3} className={"text-left font-medium"} size={"md"}>Bienvenu</Heading>
+            <Heading level={3} className={"text-left font-medium"} size={"md"}>Bienvenue</Heading>
             <Text className={"text-left"}>Votre liste de tâches</Text>
           </Stack>
 
