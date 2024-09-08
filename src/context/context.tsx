@@ -18,14 +18,14 @@ const AppContext = React.createContext<AppContextProps>({
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
   const [localTasks, setLocalTasks] = React.useState("");
-  const [tasks, setTasks] = React.useState<Task[]>([
-    {
-      id: 1,
-      description: "Préparer une présentation pour la réunion de lundi",
-      completed: false,
-      createAt: Date.now(),
-    },
-  ]);
+  const [tasks, setTasks] = React.useState<Task[]>([]);
+
+  const taskSample =  {
+    id: 1,
+    description: "Préparer une présentation pour la réunion de lundi",
+    completed: false,
+    createAt: Date.now(),
+  }
 
   React.useEffect(() => {
     const localTasksString = window.localStorage.getItem("app-tasks");
