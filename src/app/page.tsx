@@ -134,8 +134,9 @@ export default function Home() {
 
               <Dialog.Content
                 className={
-                  "bg-white fixed rounded-xl top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-[28rem]"
+                  "bg-white fixed rounded-xl top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 max-w-[28rem]"
                 }
+                style={{width: "calc(100% - 2rem)"}}
               >
                 <Stack
                   direction={"row"}
